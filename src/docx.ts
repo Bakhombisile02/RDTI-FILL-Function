@@ -16,6 +16,12 @@ interface DocxTemplateSupportingActivity {
   ActivityNumber: string;
 }
 
+/**
+ * Payload shape for docxtemplater. Template uses {} delimiters.
+ * Core activity is flattened (no loop) because the GA form only accepts one.
+ * Supporting activities use {#supportingActivities}...{/supportingActivities} conditional
+ * and {#supportingActivity}...{/supportingActivity} loop in the template.
+ */
 interface DocxTemplatePayload {
   customerName: string;
   projectName: string;
@@ -29,7 +35,6 @@ interface DocxTemplatePayload {
   endDate: string;
   anzsrc: string;
   projectOwner: ValidatedProject['projectOwner'];
-  // Flat core activity fields (single activity)
   coreActivityName: string;
   coreActivityStartDate: string;
   coreActivityEndDate: string;
@@ -37,9 +42,7 @@ interface DocxTemplatePayload {
   coreActivityUncertainties: string;
   coreActivityApproach: string;
   coreActivityIntentions: string;
-  // Outer wrapper for supporting activities section (truthy if any exist)
   supportingActivities: boolean;
-  // Inner loop for individual supporting activities
   supportingActivity: DocxTemplateSupportingActivity[];
 }
 
@@ -48,6 +51,7 @@ const defaultTemplateName = 'GA-Application-Template-Version-1.61-December-2024 
 export const defaultDocxTemplatePath = path.resolve('template', defaultTemplateName);
 const defaultOutputDir = './output';
 
+// Common affirmative/negative values from form checkboxes, boolean fields, and user input
 const yesStrings = new Set(['yes', 'y', 'true', '1', 'x', 'checked', 'ok']);
 const noStrings = new Set(['no', 'n', 'false', '0']);
 
@@ -91,7 +95,6 @@ function buildDocxTemplatePayload(project: ValidatedProject, format: DateFormatt
     project.supportingActivities.length > 0 ? true : false,
   );
 
-  // Single core activity (first one)
   const coreActivity = project.coreActivities[0];
 
   return {
@@ -107,7 +110,6 @@ function buildDocxTemplatePayload(project: ValidatedProject, format: DateFormatt
     endDate: format(project.endDate),
     anzsrc: project.anzsrc,
     projectOwner: project.projectOwner,
-    // Flat core activity fields
     coreActivityName: coreActivity?.name ?? '',
     coreActivityStartDate: coreActivity ? format(coreActivity.startDate) : '',
     coreActivityEndDate: coreActivity ? format(coreActivity.endDate) : '',
@@ -115,9 +117,7 @@ function buildDocxTemplatePayload(project: ValidatedProject, format: DateFormatt
     coreActivityUncertainties: coreActivity?.uncertainties ?? '',
     coreActivityApproach: coreActivity?.approach ?? '',
     coreActivityIntentions: coreActivity?.intentions ?? '',
-    // Outer wrapper - truthy if there are supporting activities
     supportingActivities: project.supportingActivities.length > 0,
-    // Inner loop for individual supporting activities
     supportingActivity: project.supportingActivities.map((activity, idx) => ({
       name: activity.name,
       startDate: format(activity.startDate),

@@ -56,12 +56,10 @@ function ensurePresent(value: unknown, path: string, issues: ValidationIssue[], 
 export function validateProject(input: ProjectInput): { project?: ValidatedProject; issues: ValidationIssue[] } {
   const issues: ValidationIssue[] = [];
 
-  // Root required fields
   for (const field of requiredRootFields) {
     ensurePresent(getFieldValue(input, field), field, issues, 'error');
   }
 
-  // Owner
   const owner = input.projectOwner;
   if (owner) {
     for (const field of requiredOwnerFields) {
@@ -69,7 +67,6 @@ export function validateProject(input: ProjectInput): { project?: ValidatedProje
     }
   }
 
-  // Core activity (single, required)
   if (!Array.isArray(input.coreActivities) || input.coreActivities.length === 0) {
     issues.push({ field: 'coreActivities', message: 'A core activity is required', type: 'error' });
   } else {
@@ -79,7 +76,6 @@ export function validateProject(input: ProjectInput): { project?: ValidatedProje
     }
   }
 
-  // Supporting activities (optional count, but validate if present)
   if (Array.isArray(input.supportingActivities)) {
     input.supportingActivities.forEach((activity, idx) => {
       for (const field of requiredSupportingFields) {
@@ -88,7 +84,7 @@ export function validateProject(input: ProjectInput): { project?: ValidatedProje
     });
   }
 
-  // Check description presence
+  // Falls back to projectDescription if description is missing (legacy field support)
   const descriptionSource = input.description ?? input.projectDescription;
   if (!descriptionSource) {
     issues.push({ field: 'description', message: 'Missing field: description', type: 'error' });

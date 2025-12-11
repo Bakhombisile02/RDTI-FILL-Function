@@ -1,3 +1,23 @@
+declare module 'firebase-functions/v2/https' {
+  export function onRequest(
+    options: {
+      cors?: string[] | boolean;
+      maxInstances?: number;
+      timeoutSeconds?: number;
+      memory?: string;
+    },
+    handler: (req: import('express').Request, res: import('express').Response) => void | Promise<void>
+  ): import('firebase-functions').HttpsFunction;
+  
+  export function onRequest(
+    handler: (req: import('express').Request, res: import('express').Response) => void | Promise<void>
+  ): import('firebase-functions').HttpsFunction;
+
+  export class HttpsError extends Error {
+    constructor(code: string, message: string, details?: unknown);
+  }
+}
+
 declare module '../../dist/index.js' {
   import type { ProjectInput, ProjectsPayload, DocxGenerateOptions, DocxGenerateResult } from '../../dist/types.js';
   export function generateRDTIGADocx(
