@@ -611,3 +611,35 @@ Issues? Report them at https://github.com/firebase/firebase-tools/issues and att
 
 [debug] [2025-12-11T01:05:32.373Z] Got response from /__/functions.yaml {"endpoints":{"generateGaDocx":{"availableMemoryMb":256,"timeoutSeconds":60,"minInstances":null,"maxInstances":10,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"generateGaDocx"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
 [info] ✔  functions: Loaded functions definitions from source: generateGaDocx. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: generateGaDocx."}}
+[debug] [2025-12-11T01:06:51.819Z] File /Users/siyadl/Documents/GitHub/RDTI FILL Function/functions/src/index.ts changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /Users/siyadl/Documents/GitHub/RDTI FILL Function/functions/src/index.ts changed, reloading triggers"}}
+[debug] [2025-12-11T01:06:52.820Z] Validating nodejs source
+[warn] ⚠  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[warn] ⚠  functions: Please note that there will be breaking changes when you upgrade. 
+[debug] [2025-12-11T01:06:53.458Z] > [functions] package.json contents: {
+  "name": "rdti-fill-functions-emulator",
+  "version": "0.1.0",
+  "private": true,
+  "main": "lib/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "serve": "firebase emulators:start --only functions --project demo-rdti"
+  },
+  "dependencies": {
+    "firebase-functions": "^6.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0",
+    "ts-node": "^10.9.2",
+    "@types/node": "^22.9.0"
+  }
+}
+[debug] [2025-12-11T01:06:53.458Z] Building nodejs source
+[debug] [2025-12-11T01:06:53.458Z] Failed to find version of module node: reached end of search path /Users/siyadl/Documents/GitHub/RDTI FILL Function/functions/node_modules
+[info] ✔  functions: Using node@22 from host. 
+[debug] [2025-12-11T01:06:53.459Z] Could not find functions.yaml. Must use http discovery
+[debug] [2025-12-11T01:06:53.460Z] Found firebase-functions binary at '/Users/siyadl/Documents/GitHub/RDTI FILL Function/functions/node_modules/.bin/firebase-functions'
+[info] Serving at port 8502
+
+[debug] [2025-12-11T01:06:53.702Z] Got response from /__/functions.yaml {"endpoints":{"generateGaDocx":{"availableMemoryMb":256,"timeoutSeconds":60,"minInstances":null,"maxInstances":10,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"generateGaDocx"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] ✔  functions: Loaded functions definitions from source: generateGaDocx. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: generateGaDocx."}}
