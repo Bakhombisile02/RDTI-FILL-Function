@@ -1,0 +1,150 @@
+{
+  "projects": [
+    {
+      "uid": "PRJ-002",
+      "customerName": "CMP-98765",
+      "projectName": "Decentralized Federated Learning Platform for Healthcare Data",
+      "projectDescription": "Develop a secure, decentralized platform utilizing Federated Learning (FL) to train robust diagnostic AI models across multiple hospital data silos without sharing raw patient data. This aims to overcome data privacy limitations and improve the accuracy of early disease detection.",
+      "estimatedSpend": "TBD",
+      "fundingYes": "",
+      "fundingNo": "X",
+      "SupportingYes": "X",
+      "SupportingNo": "",
+      "name": "Decentralized Federated Learning Platform for Healthcare Data",
+      "startDate": "2026-03-01",
+      "endDate": "2027-11-30",
+      "createdAt": {
+        "seconds": 1772185600,
+        "nanoseconds": 0
+      },
+      "status": "Planning",
+      "companyId": "CMP-98765",
+      "anzsrc": "080399",
+      "projectOwner": {
+        "firstName": "Anna",
+        "lastName": "Rodriguez",
+        "role": "Director of R&D",
+        "contactPhoneCountry": "+64",
+        "contactPhoneType": "Mobile",
+        "phone": "021-999-0000",
+        "email": "anna.rodriguez@company.com"
+      },
+      "coreActivities": [
+        {
+          "name": "Design and Implementation of Secure Aggregation Protocol",
+          "description": "Developing a novel, homomorphic encryption-based secure aggregation protocol to combine locally trained model updates from disparate sources while preserving data privacy and minimizing communication overhead.",
+          "startDate": "2026-04-01",
+          "endDate": "2026-10-31",
+          "uncertainties": "The scientific uncertainty is whether a homomorphic encryption scheme can be practically applied to aggregate high-dimensional model parameters (like those from a deep neural network) without introducing unacceptable latency or computational load that would render the Federated Learning process infeasible in a real-time clinical environment. Existing aggregation methods often compromise on either privacy or efficiency.",
+          "approach": "A systematic approach involves: 1) Benchmarking three different homomorphic encryption libraries. 2) Developing a tailored, optimized aggregation function for the selected library. 3) Implementing a prototype on a simulated network of ten nodes. 4) Rigorously measuring key metrics: aggregation time, bandwidth usage, and proof-of-correctness error rate across various network conditions.",
+          "intentions": "This activity intends to create New Knowledge in cryptographic engineering by proving the feasibility and efficiency of homomorphic encryption in high-scale FL for medical imaging. It will also create a New Process—the highly secure and optimized aggregation method—for distributed AI model training."
+        },
+        {
+          "name": "Decentralized Fault Tolerance and Model Drift Mitigation",
+          "description": "Investigating and implementing advanced algorithms to detect and counteract model performance degradation (drift) caused by statistical heterogeneity (Non-IID data) and handling node dropouts or malicious data poisoning attempts within the decentralized network.",
+          "startDate": "2026-11-01",
+          "endDate": "2027-05-31",
+          "uncertainties": "The technological uncertainty lies in effectively designing a decentralized mechanism to identify and isolate malicious or significantly inaccurate local model updates (e.g., from 'poisoned' data) without relying on a central authority or trusted party, a challenge amplified by the high data heterogeneity common across different hospital systems.",
+          "approach": "We will systematically compare three mitigation strategies: 1) Differential Privacy-based clipping. 2) Robust aggregation (e.g., Krum/Trimmed Mean). 3) A novel blockchain-based reputation scoring for client nodes. Each strategy will be tested under varying degrees of data poisoning (5%, 10%, 20% of nodes) and data heterogeneity using a standardized medical dataset (e.g., $\\text{Chest X-ray}$). Performance metrics will include model accuracy recovery and resilience time.",
+          "intentions": "This creates New Knowledge regarding the robustness of FL under real-world clinical data distribution and adversarial conditions. It results in an Improved Process—the self-healing, fault-tolerant FL system—which increases the reliability and trust of decentralized medical AI solutions."
+        }
+      ],
+      "supportingActivities": [
+        {
+          "name": "Data Preparation and Pre-processing Standards Definition",
+          "description": "Establishing standardized protocols and tools for cleaning, normalizing, and anonymizing medical records (DICOM/EHR data) to ensure uniform data quality across all participating hospital nodes before model training can commence.",
+          "startDate": "2026-03-01",
+          "endDate": "2026-04-30",
+          "definiition": "This satisfies the Supporting R&D activity definition because it involves the systematic preparation and standardization of materials (data) which is essential for conducting the Core R&D activities. Without this uniform pre-processing, the model updates would be inconsistent, invalidating the entire federated training experiment."
+        },
+        {
+          "name": "Acquisition and Configuration of Cloud Computing Resources",
+          "description": "Procurement and setup of necessary specialized computing resources (GPUs, secure cloud infrastructure) and configuring the virtual network environment required to simulate the high-scale decentralized architecture for development and testing.",
+          "startDate": "2026-03-15",
+          "endDate": "2026-05-15",
+          "definiition": "This satisfies the Supporting R&D activity definition as it is an activity in support of R&D that involves the necessary technical and logistical preparation of the specialized tools (hardware/software infrastructure) required to execute the intensive model development and testing defined in the Core R&D activities."
+        },
+        {
+          "name": "Ethical and Regulatory Compliance Review",
+          "description": "Continuous consultation with legal and ethical experts to ensure the platform design and aggregation protocols comply with international data privacy regulations ($\\text{GDPR}, $\\text{HIPAA}$) specific to the target deployment countries.",
+          "startDate": "2026-03-01",
+          "endDate": "2027-11-30",
+          "definiition": "This satisfies the Supporting R&D activity definition because it is work undertaken for the purpose of, or in support of, R&D. Navigating the legal and ethical constraints (which influence cryptographic choices and data handling) is fundamental to designing a technologically and commercially viable solution for the healthcare sector."
+        }
+      ]
+    },
+    {
+      "uid": "PRJ-003",
+      "customerName": "CMP-00456",
+      "projectName": "Sustainable Biodegradable Polymer Composite for Packaging",
+      "projectDescription": "Research and develop a novel, high-strength, fully compostable polymer composite derived from algae biomass to replace petroleum-based plastics in single-use packaging, targeting a shelf-life stability of 12 months and full degradation within 90 days in industrial composting facilities.",
+      "estimatedSpend": "TBD",
+      "fundingYes": "",
+      "fundingNo": "X",
+      "SupportingYes": "X",
+      "SupportingNo": "",
+      "name": "Sustainable Biodegradable Polymer Composite for Packaging",
+      "startDate": "2025-08-01",
+      "endDate": "2027-03-31",
+      "createdAt": {
+        "seconds": 1754020800,
+        "nanoseconds": 0
+      },
+      "status": "In Progress",
+      "companyId": "CMP-00456",
+      "anzsrc": "080399",
+      "projectOwner": {
+        "firstName": "Liam",
+        "lastName": "O’Connell",
+        "role": "Chief Technology Officer",
+        "contactPhoneCountry": "+44",
+        "contactPhoneType": "Office",
+        "phone": "020-7000-1111",
+        "email": "liam.oconnell@company.co.uk"
+      },
+      "coreActivities": [
+        {
+          "name": "Optimization of Algae Biopolymer Extraction and Modification",
+          "description": "Systematic experimentation to optimize the solvent extraction process for high-purity biopolymer from the chosen algae strain and chemically modify the extracted polymer to improve its tensile strength and hydrophobic properties.",
+          "startDate": "2025-09-01",
+          "endDate": "2026-04-30",
+          "uncertainties": "The core scientific uncertainty is determining the precise chemical modification (e.g., cross-linking agents, graft copolymerization ratio) required to achieve the necessary mechanical strength and water barrier properties for packaging, while simultaneously ensuring the resulting polymer remains fully biodegradable within the specified timeframe. There is no existing method that successfully balances these three constraints for this novel biopolymer source.",
+          "approach": "We will use a systematic factorial experimental design ($3^3$) to test three key variables: modification agent concentration, reaction time, and temperature. Samples will be characterized using $\\text{FTIR}$ and $\\text{GPC}$ to confirm chemical structure. Mechanical testing (tensile strength, Young’s modulus) will follow $\\text{ASTM D638}$ standards, iteratively refining the process parameters based on the results.",
+          "intentions": "This activity aims to generate New Knowledge regarding the structure-property relationships of chemically modified algae biopolymers. It will also create a New Process—the optimized, scalable, and cost-effective method for producing the modified biopolymer intermediate."
+        },
+        {
+          "name": "Composite Formulation and Accelerated Degradation Testing",
+          "description": "Developing various composite formulations by blending the modified biopolymer with natural fillers (e.g., cellulose nanofibrils) and conducting accelerated composting and moisture-resistance tests on the final packaging prototype films.",
+          "startDate": "2026-05-01",
+          "endDate": "2027-01-31",
+          "uncertainties": "The main technological uncertainty is finding the optimum ratio of reinforcing filler and processing conditions (e.g., melt-blending temperature/shear rate) that achieves the required 12-month shelf stability against moisture ingress while guaranteeing 90% degradation within 90 days under controlled composting conditions ($\\text{ASTM D6400}$), as these two requirements are fundamentally antagonistic.",
+          "approach": "A systematic approach involves fabricating composite films using a twin-screw extruder with filler loadings ranging from $5\\% \\text{ to } 25\\%$. Accelerated stability testing will use a climate chamber ($\\text{85}^\\circ\\text{C}, 85\\% \\text{ RH}$), measuring mass change and mechanical decay over 90 days. Degradation testing will follow $\\text{ASTM D5338}$ (compost simulation), monitoring $\\text{CO}_2$ evolution and residual mass.",
+          "intentions": "This activity results in New or Improved Goods (the packaging composite film). The empirical testing generates New Knowledge by defining the critical processing window that successfully meets the dual constraints of stability and rapid biodegradation."
+        }
+      ],
+      "supportingActivities": [
+        {
+          "name": "Algae Strain Cultivation and Harvesting for Biomass Supply",
+          "description": "Establishing controlled growth and harvesting protocols for the selected, high-yield algae strain to ensure a consistent and high-quality biomass supply for the Core R&D extraction activities.",
+          "startDate": "2025-08-01",
+          "endDate": "2025-10-31",
+          "definiition": "This satisfies the Supporting R&D activity definition because it involves the routine work to maintain the R&D environment and supply (raw materials) that is necessary for the execution of Core Activity 1 (Extraction and Modification). Consistent biomass quality is crucial for reliable experimentation."
+        },
+        {
+          "name": "Installation and Commissioning of Polymer Processing Equipment",
+          "description": "Installing and validating the operational parameters of key pilot-scale equipment, including the twin-screw extruder and thin-film casting machine, to ensure they can meet the specific processing requirements of the novel composite material.",
+          "startDate": "2025-11-01",
+          "endDate": "2026-01-31",
+          "definiition": "This satisfies the Supporting R&D activity definition as it is an activity in support of R&D that involves the preparation and maintenance of the specialized equipment. Accurate and consistent material processing is a prerequisite for reliable testing in Core Activity 2."
+        },
+        {
+          "name": "Cost Analysis and Preliminary Scale-Up Assessment",
+          "description": "Conducting preliminary engineering and economic assessment of the proposed optimized processes to estimate the potential industrial manufacturing costs and necessary scale-up investments.",
+          "startDate": "2026-02-01",
+          "endDate": "2027-03-31",
+          "definiition": "This satisfies the Supporting R&D activity definition because it involves the documentation and analysis of R&D results in terms of commercial viability. This work informs whether the technologically successful R&D can be transitioned into a practical, marketable process or product."
+        }
+      ]
+    }
+  ]
+}

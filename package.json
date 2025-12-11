@@ -1,0 +1,22 @@
+{
+  "name": "rdti-fill-function",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "lint": "eslint .",
+    "test": "echo 'no tests yet'",
+    "start": "node --loader ts-node/esm src/index.ts"
+  },
+  "dependencies": {
+    "@types/pizzip": "^3.1.2",
+    "docxtemplater": "^3.67.6",
+    "pizzip": "^3.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.9.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.0"
+  }
+}
