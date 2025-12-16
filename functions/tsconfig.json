@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "ES2020",
+    "moduleResolution": "Node",
+    "esModuleInterop": true,
+    "strict": true,
+    "rootDir": "src",
+    "outDir": "lib",
+    "types": ["node"],
+    "skipLibCheck": true
+  },
+  "include": ["src/**/*", "src/shims.d.ts"]
+}

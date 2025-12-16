@@ -1,0 +1,33 @@
+# Dependencies
+node_modules/
+functions/node_modules/
+
+# Build outputs
+dist/
+functions/lib/
+
+# Generated DOCX output
+output/
+functions/output/
+
+# Logs
+*.log
+firebase-debug.log
+ui-debug.log
+*-debug.log
+
+# Environment
+.env
+.env.local
+functions/.env
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Lock files (keep pnpm-lock.yaml, ignore others)
+package-lock.json
+yarn.lock
