@@ -64,7 +64,7 @@ function sanitizeProject(project: ProjectInput): ProjectInput {
     ...project,
     uid: sanitizeString(project.uid),
     name: sanitizeString(project.name),
-    description: sanitizeString(project.description),
+    description: project.description ? sanitizeString(project.description) : (project.projectDescription ? sanitizeString(project.projectDescription) : ''),
     projectDescription: project.projectDescription ? sanitizeString(project.projectDescription) : undefined,
     customerName: project.customerName ? sanitizeString(project.customerName) : undefined,
     companyId: sanitizeString(project.companyId),
@@ -105,7 +105,7 @@ const templatePath = path.join(
   '..',
   '..',
   'template',
-  'GA-Application-Template-Version-1.61-December-2024 (1).docx',
+  'RDTI-GA-Template-v1.61.docx',
 );
 
 // ─────────────────────────────────────────────────────────────────────────────

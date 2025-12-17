@@ -31,3 +31,6 @@ functions/.env
 # Lock files (keep pnpm-lock.yaml, ignore others)
 package-lock.json
 yarn.lock
+
+# Unrelated projects
+marketing-site-cms/

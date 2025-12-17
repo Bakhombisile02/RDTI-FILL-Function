@@ -17,9 +17,20 @@ interface DocxTemplateSupportingActivity {
   ActivityNumber: string;
 }
 
+interface DocxTemplateCoreActivity {
+  name: string;
+  startDate: string;
+  endDate: string;
+  description: string;
+  uncertainties: string;
+  approach: string;
+  intentions: string;
+  ActivityNumber: string;
+}
+
 /**
  * Payload shape for docxtemplater. Template uses {} delimiters.
- * Core activity is flattened (no loop) because the GA form only accepts one.
+ * Core activities use {#coreActivity}...{/coreActivity} loop.
  * Supporting activities use {#supportingActivities}...{/supportingActivities} conditional
  * and {#supportingActivity}...{/supportingActivity} loop in the template.
  */
@@ -36,19 +47,13 @@ interface DocxTemplatePayload {
   endDate: string;
   anzsrc: string;
   projectOwner: ValidatedProject['projectOwner'];
-  coreActivityName: string;
-  coreActivityStartDate: string;
-  coreActivityEndDate: string;
-  coreActivityDescription: string;
-  coreActivityUncertainties: string;
-  coreActivityApproach: string;
-  coreActivityIntentions: string;
+  coreActivity: DocxTemplateCoreActivity[];
   supportingActivities: boolean;
   supportingActivity: DocxTemplateSupportingActivity[];
 }
 
 const defaultDateFormat: DateFormatter = (iso: string) => iso;
-const defaultTemplateName = 'GA-Application-Template-Version-1.61-December-2024 (1).docx';
+const defaultTemplateName = 'RDTI-GA-Template-v1.61.docx';
 export const defaultDocxTemplatePath = path.resolve('template', defaultTemplateName);
 const defaultOutputDir = './output';
 
@@ -96,8 +101,6 @@ function buildDocxTemplatePayload(project: ValidatedProject, format: DateFormatt
     project.supportingActivities.length > 0 ? true : false,
   );
 
-  const coreActivity = project.coreActivities[0];
-
   return {
     customerName: project.customerName ?? project.companyId ?? projectName,
     projectName,
@@ -111,13 +114,16 @@ function buildDocxTemplatePayload(project: ValidatedProject, format: DateFormatt
     endDate: format(project.endDate),
     anzsrc: project.anzsrc,
     projectOwner: project.projectOwner,
-    coreActivityName: coreActivity?.name ?? '',
-    coreActivityStartDate: coreActivity ? format(coreActivity.startDate) : '',
-    coreActivityEndDate: coreActivity ? format(coreActivity.endDate) : '',
-    coreActivityDescription: coreActivity?.description ?? '',
-    coreActivityUncertainties: coreActivity?.uncertainties ?? '',
-    coreActivityApproach: coreActivity?.approach ?? '',
-    coreActivityIntentions: coreActivity?.intentions ?? '',
+    coreActivity: project.coreActivities.map((activity, idx) => ({
+      name: activity.name,
+      startDate: format(activity.startDate),
+      endDate: format(activity.endDate),
+      description: activity.description,
+      uncertainties: activity.uncertainties,
+      approach: activity.approach,
+      intentions: activity.intentions,
+      ActivityNumber: String(idx + 1),
+    })),
     supportingActivities: project.supportingActivities.length > 0,
     supportingActivity: project.supportingActivities.map((activity, idx) => ({
       name: activity.name,
